@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nacionalidade</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18pt;
+        }
+
+        input{
+            width: 100px;
+            font: normal 18pt arial;
+        }
+
+        .nacionalidade{
+            background-color: lightblue;
+            border: 1px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            width: 600px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="nacionalidade">
+        <h1>Sistema de Nacionalidade</h1>
+        <p>Bem vindo(a), Digite o nome do país que você mora e o sistema dirá se você é ou não Brasileiro!</p> <p>Morando em: <input type="text" name="txtpais" id="txtpais"></p>
+        <input type="button" value="Verificar" onclick="check()">
+        <div id="res">
+        </div>
+    </div>
+
+    <script>
+        function check(){
+            var txtp = document.querySelector('input#txtpais')
+            var res = document.querySelector('div#res')
+            var mora = (txtp.value)
+            var cor = document.querySelector('.nacionalidade')
+            res.innerHTML = `<p>Seu país residente é: <strong>${mora}</strong></p>`
+            if(mora == 'Brasil'){
+                res.innerHTML += `<p>Você é <strong>Brasileiro</strong>!</p>`
+                cor.style.background = 'green'
+                cor.style.color = 'yellow'
+            }else{
+                res.innerHTML += `<p>Você é <strong>Estrangeiro</strong>!</p>`
+                cor.style.background = 'lightblue'
+                cor.style.color = 'black'
+            }
+            res.innerHTML += `<p>Obrigado(a) por participar!</p>`
+        }
+    </script>
+</body>
+</html>
